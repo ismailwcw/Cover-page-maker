@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Assignment Cover Builder</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<!-- CKEditor -->
+<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+
+<!-- PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+body { background:#eef1f7; }
+
+/* A4 DOCUMENT */
+#document {
+  width: 794px;
+  min-height: 1123px;
+  margin: auto;
+  margin-top: 80px;      /* formal top spacing */
+  margin-bottom: 80px;
+  background: #fff;
+  padding: 50px;
+  font-family: "Times New Roman", serif;
+  border: 1px solid #ddd;
+}
+
+.document-title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.document-subtitle {
+  margin-bottom: 6px;
+}
+
+.document-section {
+  margin-top: 35px;
+}
+
+
+
+/* CONTENT */
+.document-title { text-align:center;font-size:28px;font-weight:bold; }
+.document-subtitle { text-align:center;font-size:18px; }
+.document-section { text-align:center;font-size:22px;font-weight:bold;margin:30px 0;text-decoration:underline; }
+
+.info-box {
+  border: 2px solid #000;
+  padding: 25px;
+  margin-top: 40px;
+}
+
+.logo-preview {
+  max-height:120px;
+  display:block;
+  margin:0 auto 20px;
+}
+
+
+/* footer */
+
+.app-footer {
+  border-top: 1px solid rgba(255,255,255,0.3);
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
+}
+
+.app-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1030;
+}
+
+body { padding-bottom: 70px; }
+
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container-fluid">
+            <a href="./index.html" class="navbar-brand">Home</a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse4">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse4">
+                <div class="navbar-nav">
+          <ul class="nav navbar-nav">
+        <li class="nav-item">
+          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#template">Template</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#editor">Editor</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#export">Export</button>
+        </li>
+      </ul>
+                </div>
+                <form class="d-flex ms-auto">
+                    <a type="submit" href="./contact.html" class="btn btn-outline-light">Contact us</a>
+                </form>
+            </div>
+        </div>        
+</nav>
+
+<!-- <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class="nav-item">
+          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#template">Template</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#editor">Editor</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#export">Export</button>
+        </li>
+      </ul>
+    <span class="navbar-brand">
+      <i class="bi bi-file-earmark-pdf"></i> Assignment Cover Builder
+    </span>
+  </div>
+</nav> -->
+
+
+<div class="container-fluid my-4">
+
+<div class="tab-content bg-white p-4 border">
+
+<!-- TEMPLATE -->
+<div class="tab-pane fade show active" id="template">
+<div class="row g-4">
+
+<div class="col-lg-4">
+<div class="card p-3">
+
+<label>College Name</label>
+<input class="form-control mb-2" oninput="setText('college',this.value)" value="Khilgaon Model College">
+
+<label>Program</label>
+<input class="form-control mb-2" oninput="setText('program',this.value)" value="B.B.A Honours 1st Year">
+
+<label>Department</label>
+<input class="form-control mb-2" oninput="setText('department',this.value)" value="Department of Marketing">
+
+<label>Assignment Title</label>
+<input class="form-control mb-2" oninput="setText('assignment',this.value)" value="Assignment of All Subject">
+
+<hr>
+
+<label>Student Name</label>
+<input class="form-control mb-2" oninput="setText('student',this.value)" value="Md Ismail">
+
+<label>Class</label>
+<input class="form-control mb-2" oninput="setText('class',this.value)" value="BBA (1st Year)">
+
+<label>Roll</label>
+<input class="form-control mb-2" oninput="setText('roll',this.value)" value="58">
+
+<hr>
+
+<label>Submitted To</label>
+<input class="form-control mb-2" oninput="setText('teacher',this.value)" value="Md Rafiqul Islam">
+
+<label>Designation</label>
+<input class="form-control mb-2" oninput="setText('designation',this.value)" value="Chairman">
+
+<label>Upload Logo</label>
+<input type="file" class="form-control" accept="image/*" onchange="loadLogo(event)">
+
+
+
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-8 mb-2">
+    <div class="card-header d-flex justify-content-between align-items-center">
+  <h5 class="mb-0">
+    <i class="bi bi-eye me-2"></i>Live Preview
+  </h5>
+
+  <button class="btn btn-success btn-lg" onclick="downloadPDF()">
+    <i class="bi bi-download me-1"></i> Download PDF
+  </button>
+</div>
+    
+<div id="document" class="mt-2">
+
+<img id="logo" src="/kmc_white-3.png" class="logo-preview">
+
+<div class="document-title" id="college">Khilgaon Model College</div>
+<div class="document-subtitle" id="program">B.B.A Honours 1st Year</div>
+<div class="document-subtitle" id="department">Department of Marketing</div>
+<div class="document-section" id="assignment">Assignment of All Subject</div>
+
+<div class="info-box row">
+<div class="col-md-6">
+<strong>Submitted By:</strong><br>
+Name: <span id="student">Md Ismail</span><br>
+Class: <span id="class">BBA (1st Year)</span><br>
+Roll: <span id="roll">58</span>
+</div>
+<div class="col-md-6">
+<strong>Submitted To:</strong><br>
+<span id="teacher">Md Rafiqul Islam</span><br>
+<span id="designation">Chairman</span><br>
+Department of Marketing<br>
+Khilgaon Model College
+</div>
+</div>
+<div class="flex">
+    <p class="mt-5">Submission Date: __________</p>
+    <p class="text-end">Signature: ________________</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<!-- EDITOR -->
+<div class="tab-pane fade" id="editor">
+<textarea id="editorArea"></textarea>
+<button class="btn btn-primary mt-3" onclick="applyEditor()">Apply to Document</button>
+</div>
+
+<!-- EXPORT -->
+<div class="tab-pane fade" id="export">
+<div class="text-center">
+<button class="btn btn-success btn-lg" exportonclick="downloadPDF()">
+<i class="bi bi-download"></i> Download A4 PDF
+</button>
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+<!-- <footer class="app-footer bg-success text-light mt-5">
+  <div class="container-fluid py-3">
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center text-md-start">
+        © <span id="year"></span> Assignment Cover Builder
+      </div>
+      <div class="col-md-6 text-center text-md-end">
+        <a href="#" class="text-light text-decoration-none me-3">Privacy</a>
+        <a href="#" class="text-light text-decoration-none me-3">Terms</a>
+        <a href="#" class="text-light text-decoration-none">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer> -->
+
+ <marquee behavior="" direction="" scrollamount="7" class="fixed-bottom">This project created by ismailwcw</marquee>
+
+<script>
+CKEDITOR.replace('editorArea');
+CKEDITOR.instances.editorArea.setData(document.getElementById('document').innerHTML);
+
+function setText(id,val){
+  document.getElementById(id).innerText = val || '________';
+}
+
+function loadLogo(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const logo = document.getElementById('logo');
+
+  // Replace default logo only if user selects a file
+  logo.src = URL.createObjectURL(file);
+}
+
+// function loadLogo(e){
+
+//   document.getElementById('logo').src = URL.createObjectURL(e.target.files[0]);
+// }
+
+function applyEditor(){
+  document.getElementById('document').innerHTML = CKEDITOR.instances.editorArea.getData();
+}
+
+async function downloadPDF(){
+  const { jsPDF } = window.jspdf;
+
+  const pdf = new jsPDF({
+    orientation:'p',
+    unit:'pt',
+    format:'a4'
+  });
+
+  const canvas = await html2canvas(document.getElementById('document'),{
+    scale:2,
+    useCORS:true,
+    backgroundColor:'#ffffff'
+  });
+
+  pdf.addImage(
+    canvas.toDataURL('image/png'),
+    'PNG',
+    0,
+    0,
+    595,
+    842
+  );
+
+  pdf.save('assignment-cover.pdf');
+}
+</script>
+
+</body>
+</html>
