@@ -117,6 +117,56 @@
         padding-bottom: 70px;
       }
     </style>
+
+
+<style>
+      body {
+        background: #eef1f7;
+        padding-bottom: 70px;
+      }
+      #document {
+        width: 794px;
+        min-height: 1123px;
+        margin: auto;
+        margin-top: 30px;
+        background: #fff;
+        padding: 50px;
+        border: 1px solid #ddd;
+        font-family: "Times New Roman", serif;
+      }
+      .cover-template {
+        display: none;
+      }
+      .cover-template.active {
+        display: block;
+      }
+      .document-title {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      .document-subtitle {
+        text-align: center;
+        font-size: 18px;
+      }
+      .document-section {
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        margin: 30px 0;
+        text-decoration: underline;
+      }
+      .info-box {
+        border: 2px solid #000;
+        padding: 25px;
+        margin-top: 40px;
+      }
+      .logo-preview {
+        max-height: 120px;
+        display: block;
+        margin: 0 auto 20px;
+      }
+    </style>
   </head>
 
   <body>
@@ -172,245 +222,338 @@
       </div>
     </nav>
 
-    <div class="container-fluid my-4 col-md-12 col-sm-12 ">
-      <div class="tab-content bg-white p-4 border col-md-12 col-sm-12">
-        <!-- TEMPLATE -->
-        <div class="tab-pane fade show active" id="template">
-          <div class="row g-4">
-            <div class="col-lg-4 col-sm-12 col-md-12">
-              <div class="card p-3">
-                <label>College Name</label>
-                <input
-                  class="form-control mb-2"
-                  oninput="setText('college', this.value)"
-                  value="Khilgaon Model College"
-                />
+    <div class="container-fluid my-4">
+      <div class="row g-4">
+        <!-- INPUT PANEL -->
+        <div class="col-lg-4">
+          <div class="card p-3">
+            <label>College Name</label>
+            <input
+              class="form-control mb-2"
+              id="collegeInput"
+              value="Khilgaon Model College"
+            />
 
-                <label>Program</label>
-                <input
-                  class="form-control mb-2"
-                  oninput="setText('program', this.value)"
-                  value="B.B.A Honours 1st Year"
-                />
+            <label>Program</label>
+            <input
+              class="form-control mb-2"
+              id="programInput"
+              value="B.B.A Honours 1st Year"
+            />
 
-                <label>Department</label>
-                <input
-                  class="form-control mb-2"
-                  oninput="setText('department', this.value)"
-                  value="Department of Marketing"
-                />
+            <label>Department</label>
+            <input
+              class="form-control mb-2"
+              id="departmentInput"
+              value="Department of Marketing"
+            />
 
-                <label>Assignment Title</label>
-                <input
-                  class="form-control mb-2"
-                  oninput="setText('assignment', this.value)"
-                  value="Assignment of All Subject"
-                />
+            <label>Assignment Title</label>
+            <input
+              class="form-control mb-2"
+              id="assignmentInput"
+              value="Assignment of All Subject"
+            />
 
-                <hr />
+            <hr />
 
-                <label>Student Name</label>
-                <input
-                  class="form-control mb-2"
-                  oninput="setText('student', this.value)"
-                  value="Md Ismail"
-                />
+            <label>Student Name</label>
+            <input
+              class="form-control mb-2"
+              id="studentInput"
+              value="Md Ismail"
+            />
 
-                <label>Class</label>
-                <input
-                  class="form-control mb-2"
-                  oninput="setText('class', this.value)"
-                  value="BBA (1st Year)"
-                />
+            <label>Class</label>
+            <input
+              class="form-control mb-2"
+              id="classInput"
+              value="BBA (1st Year)"
+            />
 
-                <label>Roll</label>
-                <input
-                  class="form-control mb-2"
-                  oninput="setText('roll', this.value)"
-                  value="58"
-                />
+            <label>Roll</label>
+            <input class="form-control mb-2" id="rollInput" value="58" />
 
-                <hr />
+            <hr />
 
-                <label>Submitted To</label>
-                <input
-                  class="form-control mb-2"
-                  oninput="setText('teacher', this.value)"
-                  value="Md Rafiqul Islam"
-                />
+            <label>Teacher Name</label>
+            <input
+              class="form-control mb-2"
+              id="teacherInput"
+              value="Md Rafiqul Islam"
+            />
 
-                <label>Designation</label>
-                <input
-                  class="form-control mb-2"
-                  oninput="setText('designation', this.value)"
-                  value="Chairman"
-                />
+            <label>Designation</label>
+            <input
+              class="form-control mb-2"
+              id="designationInput"
+              value="Chairman"
+            />
 
-                <label>Department</label>
-                <input
-                  class="form-control mb-2"
-                  oninput="setText('departmentOfTeacher', this.value)"
-                  value="Department of Marketing"
-                />
+            <label>Teacher Department</label>
+            <input
+              class="form-control mb-2"
+              id="teacherDeptInput"
+              value="Department of Marketing"
+            />
 
-                <label>College</label>
-                <input
-                  class="form-control mb-2"
-                  oninput="setText('collegeOfTeacher', this.value)"
-                  value="Khilgaon Model College"
-                />
+            <label>Teacher College</label>
+            <input
+              class="form-control mb-2"
+              id="teacherCollegeInput"
+              value="Khilgaon Model College"
+            />
 
-                <label>Upload Logo</label>
-                <input
-                  type="file"
-                  class="form-control"
-                  accept="image/*"
-                  onchange="loadLogo(event)"
-                />
-              </div>
-            </div>
+            <hr />
 
-            <div class="col-lg-8 mb-2">
-              <div
-                class="card-header d-flex justify-content-between align-items-center"
-              >
-                <h5 class="mb-0"><i class="bi bi-eye me-2"></i>Live Preview</h5>
+            <label>Upload Logo</label>
+            <input
+              type="file"
+              class="form-control mb-2"
+              id="logoInput"
+              accept="image/*"
+            />
 
-                <button class="btn btn-success btn-lg" onclick="downloadPDF()">
-                  <i class="bi bi-download me-1"></i> Download PDF
-                </button>
-              </div>
-
-              <div id="document" class="mt-2 ">
-                <img id="logo" src="/kmc_white-3.png" class="logo-preview" />
-
-                <div class="document-title" id="college">
-                  Khilgaon Model College
-                </div>
-                <div class="document-subtitle" id="program">
-                  B.B.A Honours 1st Year
-                </div>
-                <div class="document-subtitle" id="department">
-                  Department of Marketing
-                </div>
-                <div class="document-section" id="assignment">
-                  Assignment of All Subject
-                </div>
-
-                <div class="info-box row">
-                  <div class="col-md-6">
-                    <strong>Submitted By:</strong><br />
-                    Name: <span id="student">Md Ismail</span><br />
-                    Class: <span id="class">BBA (1st Year)</span><br />
-                    Roll: <span id="roll">58</span>
-                  </div>
-                  <div class="col-md-6">
-                    <strong>Submitted To:</strong><br />
-                    <span id="teacher">Md Rafiqul Islam</span><br />
-                    <span id="designation">Chairman</span><br />
-                    <span id="departmentOfTeacher">Department of Marketing</span><br />
-                    <span id="collegeOfTeacher">Khilgaon Model College</span>
-                  </div>
-                </div>
-                <div class="flex">
-                  <p class="mt-5">Submission Date: __________</p>
-                  <p class="text-end">Signature: ________________</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- EDITOR -->
-        <div class="tab-pane fade" id="editor">
-          <textarea id="editorArea"></textarea>
-          <button class="btn btn-primary mt-3" onclick="applyEditor()">
-            Apply to Document
-          </button>
-        </div>
-
-        <!-- EXPORT -->
-        <div class="tab-pane fade" id="export">
-          <div class="text-center">
-            <button
-              class="btn btn-success btn-lg"
-              exportonclick="downloadPDF()"
-            >
-              <i class="bi bi-download"></i> Download A4 PDF
+            <button class="btn btn-outline-primary w-100" id="toggleLogoBtn">
+              Hide Logo
             </button>
           </div>
         </div>
+
+        <!-- PREVIEW -->
+        <div class="col-lg-8">
+          <div
+            class="card-header d-flex justify-content-between align-items-center"
+          >
+            <strong>Live Preview</strong>
+
+            <div class="d-flex">
+              <select class="form-select me-2" id="templateSelect">
+                <option value="t1">Format 1</option>
+                <option value="t4">Format 2</option>
+                <option value="t2">Format 3</option>
+                <option value="t3">Format 4</option>
+              </select>
+              <button class="btn btn-success" id="downloadBtn">
+                Download PDF
+              </button>
+            </div>
+          </div>
+
+          <div id="document">
+            <!-- TEMPLATE 1 -->
+            <div id="t1" class="cover-template active">
+              <div class="logo-container"></div>
+              <div class="document-title" id="collegePreview"></div>
+              <div class="document-subtitle" id="programPreview"></div>
+              <div class="document-subtitle" id="departmentPreview"></div>
+              <div class="document-section" id="assignmentPreview"></div>
+              <div class="info-box row mb-5">
+                <div class="col-6">
+                  <b>Submitted By</b><br />
+                  <span id="studentPreview"></span><br />
+                  Class: <span id="classPreview"></span><br />
+                  Roll: <span id="rollPreview"></span>
+                </div>
+                <div class="col-6">
+                  <b>Submitted To</b><br />
+                  <span id="teacherPreview"></span><br />
+                  <span id="designationPreview"></span><br />
+                  <span id="teacherDeptPreview"></span><br />
+                  <span id="teacherCollegePreview"></span>
+                </div>
+              </div>
+              <div class="row mt-5 h5">
+                <div class="col-6 mt-5 text-start" id="datePreview"> Date: <span>___________________</span></div>
+                <div class="col-6 mt-5 text-end" id="datePreview"> Singnature: <span>___________________</span></div>
+              </div>
+            </div>
+
+            <!-- TEMPLATE 2 -->
+            <div id="t2" class="cover-template text-center">
+              <div class="logo-container"></div>
+              <div class="document-title" id="collegePreview2"></div>
+              <div class="document-subtitle" id="programPreview2"></div>
+              <div class="document-subtitle" id="departmentPreview2"></div>
+              <div class="document-section" id="assignmentPreview2"></div>
+              <div class="info-box row">
+                <div class="col-6 border-end">
+                  <b>Submitted By</b><br />
+                  <span id="studentPreview2"></span><br />
+                  Class: <span id="classPreview2"></span><br />
+                  Roll: <span id="rollPreview2"></span>
+                </div>
+                <div class="col-6 border-start">
+                  <b>Submitted To</b><br />
+                  <span id="teacherPreview2"></span><br />
+                  <span id="designationPreview2"></span><br />
+                  <span id="teacherDeptPreview2"></span><br />
+                  <span id="teacherCollegePreview2"></span>
+                </div>
+              </div>
+              <div class="row mt-5 h5">
+              <div class="col-6 mt-5 text-start" id="datePreview"> Date: <span>___________________</span></div>
+              <div class="col-6 mt-5 text-end" id="datePreview"> Singnature: <span>___________________</span></div>
+            </div>
+            </div>
+
+            <!-- TEMPLATE 3 -->
+            <div id="t3" class="cover-template text-center">
+              <div class="logo-container"></div>
+              <h1 class="document-title" id="collegePreview3"></h1>
+              <p class="document-subtitle" id="departmentPreview3"></p>
+              <p class="document-section" id="assignmentPreview3"></p>
+              <h4 id="programPreview3"></h4>
+              <p>
+                <strong>Supervisor</strong><br />
+                <span id="teacherPreview3"></span><br />
+                <span id="designationPreview3"></span>
+              </p>
+              <p>
+                <strong>Submitted By</strong><br />
+                <span id="studentPreview3"></span><br />
+                Roll-<span id="rollPreview3"></span><br />
+                <span id="classPreview3"></span><br />
+                <span id="departmentPreview3b"></span>
+              </p>
+            </div>
+
+            <!-- TEMPLATE 4 -->
+            <div id="t4" class="cover-template">
+              <div class="logo-container"></div>
+              <div class="document-title" id="collegePreview4"></div>
+              <div class="document-subtitle" id="programPreview4"></div>
+              <div class="document-subtitle" id="departmentPreview4"></div>
+              <div class="document-section" id="assignmentPreview4"></div>
+              <div class="info-box row">
+                <div class="col-6 border-end">
+                  <b>Submitted By</b><br />
+                  <span id="studentPreview4"></span><br />
+                  Class: <span id="classPreview4"></span><br />
+                  Roll: <span id="rollPreview4"></span>
+                </div>
+                <div class="col-6 border-start">
+                  <b>Submitted To</b><br />
+                  <span id="teacherPreview4"></span><br />
+                  <span id="designationPreview4"></span><br />
+                  <span id="teacherDeptPreview4"></span><br />
+                  <span id="teacherCollegePreview4"></span>
+                </div>
+              </div>
+              <div class="row mt-5 h5">
+              <div class="col-6 mt-5 text-start" id="datePreview"> Date: <span>___________________</span></div>
+              <div class="col-6 mt-5 text-end" id="datePreview"> Singnature: <span>___________________</span></div>
+            </div>
+            </div>
+            <!-- TEMPLATE 5 -->
+            <div id="t5" class="cover-template">
+              <div class="logo-container"></div>
+              <div class="document-title" id="collegePreview5"></div>
+              <div class="document-subtitle" id="programPreview5"></div>
+              <div class="document-subtitle" id="departmentPreview5"></div>
+              <div class="document-section" id="assignmentPreview5"></div>
+              <div class="info-box row">
+                <div class="col-6 border-end">
+                  <b>Submitted By</b><br />
+                  <span id="studentPreview5"></span><br />
+                  Class: <span id="classPreview5"></span><br />
+                  Roll: <span id="rollPreview5"></span>
+                </div>
+                <div class="col-6 border-start">
+                  <b>Submitted To</b><br />
+                  <span id="teacherPreview5"></span><br />
+                  <span id="designationPreview5"></span><br />
+                  <span id="teacherDeptPreview5"></span><br />
+                  <span id="teacherCollegePreview5"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- <footer class="app-footer bg-success text-light mt-5">
-  <div class="container-fluid py-3">
-    <div class="row align-items-center">
-      <div class="col-md-6 text-center text-md-start">
-        © <span id="year"></span> Assignment Cover Builder
-      </div>
-      <div class="col-md-6 text-center text-md-end">
-        <a href="#" class="text-light text-decoration-none me-3">Privacy</a>
-        <a href="#" class="text-light text-decoration-none me-3">Terms</a>
-        <a href="#" class="text-light text-decoration-none">Contact</a>
-      </div>
-    </div>
-  </div>
-</footer> -->
+    <script>
+      // 🔹 UNIVERSAL AUTO TEXT BINDING
+      document.querySelectorAll('input[id$="Input"]').forEach((input) => {
+        const base = input.id.replace("Input", "");
+        const previews = document.querySelectorAll(`[id^="${base}Preview"]`);
+        previews.forEach((p) => (p.innerText = input.value));
+        input.addEventListener("input", () => {
+          const v = input.value || "____";
+          previews.forEach((p) => (p.innerText = v));
+        });
+      });
+
+      // LOGO REMOVE / RESTORE
+      const logoInput = document.getElementById("logoInput");
+      const toggleBtn = document.getElementById("toggleLogoBtn");
+      const containers = document.querySelectorAll(".logo-container");
+
+      let logoURL = "./kmc_white-3.png";
+      let logoVisible = true;
+
+      function createLogo() {
+        const img = document.createElement("img");
+        img.className = "logo-preview";
+        img.src = logoURL;
+        return img;
+      }
+
+      function updateLogo() {
+        containers.forEach((c) => {
+          c.innerHTML = "";
+          if (logoVisible) c.appendChild(createLogo());
+        });
+        toggleBtn.textContent = logoVisible ? "Hide Logo" : "Show Logo";
+      }
+
+      logoInput.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const r = new FileReader();
+        r.onload = () => {
+          logoURL = r.result;
+          logoVisible = true;
+          updateLogo();
+        };
+        r.readAsDataURL(file);
+      });
+
+      toggleBtn.addEventListener("click", () => {
+        logoVisible = !logoVisible;
+        updateLogo();
+      });
+
+      updateLogo();
+
+      // TEMPLATE SWITCH
+      document
+        .getElementById("templateSelect")
+        .addEventListener("change", (e) => {
+          document
+            .querySelectorAll(".cover-template")
+            .forEach((t) => t.classList.remove("active"));
+          document.getElementById(e.target.value).classList.add("active");
+        });
+
+      // PDF
+      document
+        .getElementById("downloadBtn")
+        .addEventListener("click", async () => {
+          const canvas = await html2canvas(
+            document.getElementById("document"),
+            { scale: 2 },
+          );
+          const { jsPDF } = window.jspdf;
+          const pdf = new jsPDF("p", "pt", "a4");
+          pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 595, 842);
+          pdf.save("assignment-cover.pdf");
+        });
+    </script>
 
     <marquee behavior="" direction="" scrollamount="7" class="fixed-bottom">
       This project created by ismailwcw
     </marquee>
-
-    <script>
-      CKEDITOR.replace("editorArea");
-      CKEDITOR.instances.editorArea.setData(
-        document.getElementById("document").innerHTML,
-      );
-
-      function setText(id, val) {
-        document.getElementById(id).innerText = val || "________";
-      }
-
-      function loadLogo(e) {
-        const file = e.target.files[0];
-        if (!file) return;
-
-        const logo = document.getElementById("logo");
-
-        // Replace default logo only if user selects a file
-        logo.src = URL.createObjectURL(file);
-      }
-
-      // function loadLogo(e){
-
-      //   document.getElementById('logo').src = URL.createObjectURL(e.target.files[0]);
-      // }
-
-      function applyEditor() {
-        document.getElementById("document").innerHTML =
-          CKEDITOR.instances.editorArea.getData();
-      }
-
-      async function downloadPDF() {
-        const { jsPDF } = window.jspdf;
-
-        const pdf = new jsPDF({
-          orientation: "p",
-          unit: "pt",
-          format: "a4",
-        });
-
-        const canvas = await html2canvas(document.getElementById("document"), {
-          scale: 2,
-          useCORS: true,
-          backgroundColor: "#ffffff",
-        });
-
-        pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 595, 842);
-
-        pdf.save("assignment-cover.pdf");
-      }
-    </script>
   </body>
 </html>
