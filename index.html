@@ -248,6 +248,33 @@
               value="Department of Marketing"
             />
 
+            <label>Session</label>
+            <input
+              class="form-control mb-2"
+              id="sessionInput"
+              value="2024-2025"
+            />
+
+            <label>Assignment Title</label>
+            <input
+              class="form-control mb-2"
+              id="assignmentInput"
+              value="Assignment of All Subject"
+            />
+            <label>Submit title if want to change</label>
+            <input
+              class="form-control mb-2 date"
+              id="submitTitleInput"
+              value="Date"
+            />
+
+            <label>Submit Date</label>
+            <input
+              type="date"
+              class="form-control mb-2 date"
+              id="submitDateInput"
+              
+            />
             <label>Assignment Title</label>
             <input
               class="form-control mb-2"
@@ -347,12 +374,14 @@
               <div class="document-title" id="collegePreview"></div>
               <div class="document-subtitle" id="programPreview"></div>
               <div class="document-subtitle" id="departmentPreview"></div>
+              <div class="document-subtitle" id="sessionPreview"></div>
               <div class="document-section" id="assignmentPreview"></div>
               <div class="info-box row mb-5">
                 <div class="col-6">
                   <b>Submitted By</b><br />
                   <span id="studentPreview"></span><br />
                   Class: <span id="classPreview"></span><br />
+                  Session: <span id="sessionPreview"></span> <br>
                   Roll: <span id="rollPreview"></span>
                 </div>
                 <div class="col-6">
@@ -364,7 +393,7 @@
                 </div>
               </div>
               <div class="row mt-5 h5">
-                <div class="col-6 mt-5 text-start" id="datePreview"> Date: <span>___________________</span></div>
+                <div class="col-6 mt-5 text-start" id="datePreview"> <span id="submitTitlePreview"></span>: <span><span id="submitDatePreview">___________________</span></span></div>
                 <div class="col-6 mt-5 text-end" id="datePreview"> Singnature: <span>___________________</span></div>
               </div>
             </div>
@@ -381,6 +410,7 @@
                   <b>Submitted By</b><br />
                   <span id="studentPreview2"></span><br />
                   Class: <span id="classPreview2"></span><br />
+                  Session  <span id="sessionPreview"></span><br>
                   Roll: <span id="rollPreview2"></span>
                 </div>
                 <div class="col-6 border-start">
@@ -392,7 +422,7 @@
                 </div>
               </div>
               <div class="row mt-5 h5">
-              <div class="col-6 mt-5 text-start" id="datePreview"> Date: <span>___________________</span></div>
+              <div class="col-6 mt-5 text-start" id="datePreview"> <span id="submitTitlePreview"></span>: <span><span id="submitDatePreview">___________________</span></span></div>
               <div class="col-6 mt-5 text-end" id="datePreview"> Singnature: <span>___________________</span></div>
             </div>
             </div>
@@ -414,6 +444,7 @@
                 <span id="studentPreview3"></span><br />
                 Roll-<span id="rollPreview3"></span><br />
                 <span id="classPreview3"></span><br />
+                  Session: <span id="sessionPreview"></span> <br>
                 <span id="departmentPreview3b"></span>
               </p>
             </div>
@@ -430,6 +461,7 @@
                   <b>Submitted By</b><br />
                   <span id="studentPreview4"></span><br />
                   Class: <span id="classPreview4"></span><br />
+                  Session: <span id="sessionPreview"></span> <br>
                   Roll: <span id="rollPreview4"></span>
                 </div>
                 <div class="col-6 border-start">
@@ -441,7 +473,7 @@
                 </div>
               </div>
               <div class="row mt-5 h5">
-              <div class="col-6 mt-5 text-start" id="datePreview"> Date: <span>___________________</span></div>
+              <div class="col-6 mt-5 text-start" id="datePreview"> <span id="submitTitlePreview"></span>: <span><span id="submitDatePreview">___________________</span></span></div>
               <div class="col-6 mt-5 text-end" id="datePreview"> Singnature: <span>___________________</span></div>
             </div>
             </div>
@@ -484,6 +516,32 @@
           previews.forEach((p) => (p.innerText = v));
         });
       });
+     const dateInput = document.getElementById('submitDateInput');
+const preview = document.getElementById('submitDatePreview');
+
+dateInput.addEventListener('change', function () {
+  if (!this.value) {
+    preview.innerText = '___________________';
+    return;
+  }
+
+  const date = new Date(this.value);
+
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+
+  preview.innerText = `${day}-${month}-${year}`;
+});
+
+dateInput.addEventListener('input', function () {
+  if (!this.value) {
+    preview.innerText = '___________________';
+  }
+});
+
+
+
 
       // LOGO REMOVE / RESTORE
       const logoInput = document.getElementById("logoInput");
